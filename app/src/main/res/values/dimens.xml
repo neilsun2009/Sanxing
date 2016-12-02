@@ -5,6 +5,10 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
 
+    <!--universal-->
+    <dimen name="text_small">12dp</dimen>
+    <dimen name="text_normal">16dp</dimen>
+
     <!-- models -->
     <dimen name="model_margin_top">16dp</dimen>
     <dimen name="model_margin_title">8dp</dimen>
