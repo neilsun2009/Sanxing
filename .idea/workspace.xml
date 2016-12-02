@@ -19,9 +19,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="964df716-9727-49b0-b118-c506926bf68a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/设计图/附近问题-主页面.jpg" afterPath="$PROJECT_DIR$/设计图/附近问题-主页面.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design.md" afterPath="$PROJECT_DIR$/design.md" />
     </list>
     <ignored path="Sanxing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -2057,7 +2055,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
