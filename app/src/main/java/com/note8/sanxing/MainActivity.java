@@ -1,6 +1,8 @@
 package com.note8.sanxing;
 
 import android.content.Intent;
+import android.media.Image;
+import android.provider.ContactsContract;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +14,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +23,7 @@ import android.view.ViewGroup;
 
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -114,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 2: // broadcast
                     rootView = inflater.inflate(R.layout.fragment_broadcast, container, false);
+                    initBroadcast(rootView);
                     break;
                 case 3: // nearby
                     rootView = inflater.inflate(R.layout.fragment_nearby, container, false);
@@ -129,6 +134,30 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
             return rootView;
+        }
+
+        private void initBroadcast(final View rootView) {
+            // declare
+            ImageView todayImg = (ImageView) rootView.findViewById(R.id.broadcast_today_img);
+            ImageView submitImg = (ImageView) rootView.findViewById(R.id.broadcast_submit_img);
+            LinearLayout linearLayout = (LinearLayout) rootView.findViewById(R.id.broadcast_list_layout);
+            final int[] listImg = new int[] {R.drawable.broadcast_img_2, R.drawable.broadcast_img_3, R.drawable.broadcast_img_4};
+            for (int i = 0; i < 3; ++i) {
+                ImageView imageView = new ImageView(rootView.getContext());
+                imageView.setImageResource(listImg[i]);
+//                imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int)getResources().getDimension(R.dimen.broadcast_image_height)));
+                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int)getResources().getDimension(R.dimen.broadcast_image_height));
+                lp.setMargins(0, (int)getResources().getDimension(R.dimen.model_margin_title), 0, 0);
+                imageView.setLayoutParams(lp);
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+                linearLayout.addView(imageView);
+            }
         }
 
         private void initFind(final View rootView) {
