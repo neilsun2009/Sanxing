@@ -1,11 +1,14 @@
 package com.note8.sanxing;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -15,6 +18,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,17 +27,24 @@ import android.view.ViewGroup;
 
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -125,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 3: // nearby
                     rootView = inflater.inflate(R.layout.fragment_nearby, container, false);
+                    initNearby(rootView);
                     break;
                 case 4: // find
                     rootView = inflater.inflate(R.layout.fragment_find, container, false);
@@ -189,6 +201,49 @@ public class MainActivity extends AppCompatActivity {
                 });
                 linearLayout.addView(imageView);
             }
+        }
+
+        private void initNearby(final View rootView) {
+            // get the listview and set its adapter
+            ListView listView = (ListView) rootView.findViewById(R.id.nearbyListView);
+            List<NearbyClass> nearbyList = initNearbyData();
+            NearbyAdapter adapter = new NearbyAdapter(
+                    rootView.getContext(), R.layout.fragment_nearby_list_item, nearbyList
+            );
+//            SimpleAdapter adapter = new SimpleAdapter(
+//                    rootView.getContext(), nearbyList,
+//                    R.layout.fragment_nearby_list_item,
+//                    new String[] {"avatar", "username", "question"},
+//                    new int[] {R.id.avatarImageView, R.id.usernameTextView, R.id.questionTextView}
+//                    );
+            listView.setAdapter(adapter);
+
+            // get the ask question button and set listener
+            ImageButton askButton = (ImageButton) rootView.findViewById(R.id.askNearbyButton);
+            askButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(rootView.getContext(), "put intent to ask page here", Toast.LENGTH_SHORT).show();
+                }
+            } );
+
+            // get and set the nums text
+            TextView numOfPeopleNearbyTextView = (TextView) rootView.findViewById(R.id.numOfPeopleNearByTextView);
+            TextView numOfQuestionNearbyTextView = (TextView) rootView.findViewById(R.id.numOfQuestionsNearByTextView);
+            numOfPeopleNearbyTextView.setText("3");
+            numOfQuestionNearbyTextView.setText("20");
+        }
+
+        private ArrayList<NearbyClass> initNearbyData() {
+            NearbyClass[] nearbyArray = {
+                    new NearbyClass(R.drawable.nearby_avatar1, "提问者1", "我是问题1我是问题1我是问题1我是问题1我是问题1我是问题1我是问题1"),
+                    new NearbyClass(R.drawable.nearby_avatar2, "提问者2", "我是问题2我是问题2我是问题2我是问题2我是问题2我是问题2我是问题2我是问题2我是问题2"),
+                    new NearbyClass(R.drawable.nearby_avatar3, "提问者3", "我是问题3我是问题3我是问题3我是问题3我是问题3我是问题3我是问题3我是问题3我是问题3我是问题3我是问题3")
+            };
+
+            ArrayList<NearbyClass> nearbyList = new ArrayList(Arrays.asList(nearbyArray));
+
+            return nearbyList;
         }
 
         private void initFind(final View rootView) {

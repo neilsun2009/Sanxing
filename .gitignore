@@ -1,6 +1,6 @@
-# idea
+# User-specific configurations
 .idea/
-
+*.iml
 
 # Built application files
 *.apk
