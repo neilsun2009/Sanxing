@@ -9,6 +9,19 @@
 * 边距之类的基本就是16dp，8dp这样，得体即可
 * 大小的话，dp和px在这套设计图里的换算关系是 1dp = 2px
 
+## 顶栏Action Bar
+* 可以参考activity_me.xml
+* 样式定义为
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/action_bar_height"
+    android:background="@color/colorActionBarBg"
+    android:text="标题名称"
+    android:paddingLeft="@dimen/action_bar_padding"
+    android:textSize="@dimen/action_bar_text_size"
+    android:gravity="center_vertical"
+    android:textColor="@color/colorActionBarText"
+    android:elevation="3dp"
+
 
 ## 今日页面
 > 类似于时间轴，在首页上显示每天三个问题中的一个
