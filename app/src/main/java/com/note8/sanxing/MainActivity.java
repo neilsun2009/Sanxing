@@ -21,15 +21,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -113,8 +117,7 @@ public class MainActivity extends AppCompatActivity {
             switch (num) {
                 case 1: // today
                     rootView = inflater.inflate(R.layout.fragment_today, container, false);
-                    TextView text = (TextView) rootView.findViewById(R.id.today_text);
-                    text.setText((new Date()).toString());
+                    initToday(rootView);
                     break;
                 case 2: // broadcast
                     rootView = inflater.inflate(R.layout.fragment_broadcast, container, false);
@@ -134,6 +137,34 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
             return rootView;
+        }
+
+        private void initToday(final View rootView) {
+            // declare
+            ListView listView = (ListView) rootView.findViewById(R.id.today_list);
+            List<TodayClass> todayList = initTodayData();
+            TodayAdapter adapter = new TodayAdapter(rootView.getContext(), R.layout.listview_today, todayList);
+            listView.setAdapter(adapter);
+        }
+
+        private ArrayList<TodayClass> initTodayData() {
+            ArrayList<TodayClass> list = new ArrayList<>();
+            TodayClass temp = new TodayClass(0, "12-10", "今天的问题", "我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案",
+                    0, false, "快去回答", false);
+            list.add(temp);
+            temp = new TodayClass(1, "12-09", "昨天的问题", "我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案",
+                    0, false, "查看回答", true);
+            list.add(temp);
+            temp = new TodayClass(2, "12-08", "前天的问题", "我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案",
+                    R.drawable.today_list_photo, true, "查看回答", true);
+            list.add(temp);
+            temp = new TodayClass(3, "12-07", "大前天的问题", "我还是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案",
+                    0, false, "查看回答", true);
+            list.add(temp);
+            temp = new TodayClass(4, "12-06", "标题特别特别长的问题", "我还是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案我是答案",
+                    0, false, "查看回答", true);
+            list.add(temp);
+            return list;
         }
 
         private void initBroadcast(final View rootView) {
@@ -178,6 +209,8 @@ public class MainActivity extends AppCompatActivity {
             btn3.setOnClickListener(onClickListener);
         }
     }
+
+
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
