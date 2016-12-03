@@ -1,5 +1,4 @@
 # idea
-.idea/workspace.xml
 .idea/
 
 
@@ -76,7 +75,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-.idea/vcs.xml
-Sanxing/
+
 
 "\350\256\276\350\256\241\345\233\276/"
+libs/
