@@ -17,7 +17,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
             switch (num) {
                 case 1: // today
                     rootView = inflater.inflate(R.layout.fragment_today, container, false);
+                    TextView text = (TextView) rootView.findViewById(R.id.today_text);
+                    text.setText((new Date()).toString());
                     break;
                 case 2: // broadcast
                     rootView = inflater.inflate(R.layout.fragment_broadcast, container, false);
@@ -102,9 +110,6 @@ public class MainActivity extends AppCompatActivity {
                     rootView = inflater.inflate(R.layout.fragment_find, container, false);
                     initFind(rootView);
                     break;
-                case 5: // me
-                    rootView = inflater.inflate(R.layout.fragment_me, container, false);
-                    break;
                 default:
                     rootView = inflater.inflate(R.layout.fragment_main, container, false);
                     TextView textView = (TextView) rootView.findViewById(R.id.section_label);
@@ -114,8 +119,22 @@ public class MainActivity extends AppCompatActivity {
             return rootView;
         }
 
-        private void initFind(View rootView) {
+        private void initFind(final View rootView) {
 //            rootView.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+            // declare
+            Button btn1 = (Button) rootView.findViewById(R.id.find_btn_1);
+            Button btn2 = (Button) rootView.findViewById(R.id.find_btn_2);
+            Button btn3 = (Button) rootView.findViewById(R.id.find_btn_3);
+            // listener
+            View.OnClickListener onClickListener = new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(rootView.getContext(), "该功能尚未开通", Toast.LENGTH_SHORT).show();
+                }
+            };
+            btn1.setOnClickListener(onClickListener);
+            btn2.setOnClickListener(onClickListener);
+            btn3.setOnClickListener(onClickListener);
         }
     }
 
@@ -139,22 +158,20 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 5;
+            return 4;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "今日";
+                    return "时光轴";
                 case 1:
                     return "广播";
                 case 2:
                     return "附近";
                 case 3:
                     return "发现";
-                case 4:
-                    return "我";
 
             }
             return null;
