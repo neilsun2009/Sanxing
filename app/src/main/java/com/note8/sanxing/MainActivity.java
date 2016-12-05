@@ -1,6 +1,8 @@
 package com.note8.sanxing;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.provider.ContactsContract;
@@ -9,6 +11,7 @@ import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -17,6 +20,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,6 +33,8 @@ import android.view.ViewGroup;
 
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -184,6 +192,11 @@ public class MainActivity extends AppCompatActivity {
             ImageView todayImg = (ImageView) rootView.findViewById(R.id.broadcast_today_img);
             ImageView submitImg = (ImageView) rootView.findViewById(R.id.broadcast_submit_img);
             LinearLayout linearLayout = (LinearLayout) rootView.findViewById(R.id.broadcast_list_layout);
+
+            // open send question dialog
+            sendBroadcastQuestion(rootView, submitImg);
+
+            // list of history broadcast questions
             final int[] listImg = new int[] {R.drawable.broadcast_img_2, R.drawable.broadcast_img_3, R.drawable.broadcast_img_4};
             for (int i = 0; i < 3; ++i) {
                 ImageView imageView = new ImageView(rootView.getContext());
@@ -196,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        // todo: open question detail activity
                     }
                 });
                 linearLayout.addView(imageView);
@@ -226,6 +239,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(rootView.getContext(), "put intent to ask page here", Toast.LENGTH_SHORT).show();
                 }
             } );
+            /******************************** Add by Wiki ************************************/
+            //点击编辑问题的按钮弹出问题编辑对话框（暂将该按钮随意放在附近页面）
+            // final Button send_nearby_btn = (Button)rootView.findViewById(R.id.send_nearby_btn);
+            sendNearbyQuestion(rootView, askButton);
 
             // get and set the nums text
             TextView numOfPeopleNearbyTextView = (TextView) rootView.findViewById(R.id.numOfPeopleNearByTextView);
@@ -263,7 +280,119 @@ public class MainActivity extends AppCompatActivity {
             btn2.setOnClickListener(onClickListener);
             btn3.setOnClickListener(onClickListener);
         }
+
+        /******************************** Add by Wiki ************************************/
+        //除雷达部分外对话框的事件处理
+        private void sendQuestion(final View dialogView,final AlertDialog.Builder builder){
+            final EditText user_def_tag = (EditText)dialogView.findViewById(R.id.user_def_tag);
+            user_def_tag.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if(hasFocus || !user_def_tag.getText().toString().equals("")){
+                        user_def_tag.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                        user_def_tag.setTextColor(getResources().getColor(R.color.colorTextWhite));
+                        user_def_tag.setHint("");
+                    }
+                    else{
+                        user_def_tag.setBackground(getResources().getDrawable(R.drawable.border_shadow_tang));
+                        user_def_tag.setHint("自定义标签");
+                    }
+                }
+            });
+            //可多选标签项
+            CheckBox tag1 = (CheckBox)dialogView.findViewById(R.id.tag1);
+            CheckBox tag2 = (CheckBox)dialogView.findViewById(R.id.tag2);
+            CheckBox tag3 = (CheckBox)dialogView.findViewById(R.id.tag3);
+            CheckBox tag4 = (CheckBox)dialogView.findViewById(R.id.tag4);
+            CheckBox tag5 = (CheckBox)dialogView.findViewById(R.id.tag5);
+            CheckBox tag6 = (CheckBox)dialogView.findViewById(R.id.tag6);
+
+            //用户编辑问题输入框
+            EditText send_broadcast_que = (EditText)dialogView.findViewById(R.id.send_broadcast_que);
+
+            //对话框确定和取消按钮
+            final Button cancel_btn = (Button)dialogView.findViewById(R.id.cancel_btn);
+            final Button sure_btn = (Button)dialogView.findViewById(R.id.sure_btn);
+            final Dialog dialog = builder.show();
+
+            cancel_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+            sure_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                    Toast.makeText(getActivity(),"提交成功，等待审核",Toast.LENGTH_SHORT).show();
+                }
+            });
+            dialog.show();
+
+        }
+
+        /******************************** Add by Wiki ************************************/
+        //向附近发送问题的按钮的监听事件处理方法
+        private void sendNearbyQuestion(final View rootView,ImageButton send_nearby_btn){
+            send_nearby_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    final View dialogView = LayoutInflater.from(getActivity()).inflate(R.layout.send_question_dialog,null);
+                    builder.setView(dialogView);
+
+                    final Button radar_btn = (Button)dialogView.findViewById(R.id.radar_hint);
+                    final TextView distance_hint = (TextView)dialogView.findViewById(R.id.distance_hint);
+                    TextView dialog_title = (TextView)dialogView.findViewById(R.id.dialog_title);
+                    dialog_title.setText("向附近的人提问");
+
+                    final String[] distance = {"向500米内\n小伙伴们提问","向300米内\n小伙伴们提问","向100米内\n小伙伴们提问"};
+                    final int[] radar_pic = {R.drawable.nearby_icon_radar1,R.drawable.nearby_icon_radar2,R.drawable.nearby_icon_radar3};
+
+                    SpannableStringBuilder style = new SpannableStringBuilder(distance_hint.getText().toString());
+                    style.setSpan(new ForegroundColorSpan(Color.RED),1,5, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    distance_hint.setText(style);
+                    radar_btn.setTag(0);
+                    radar_btn.setOnClickListener(new View.OnClickListener() {
+                        int tag = (Integer)radar_btn.getTag();
+                        @Override
+                        public void onClick(View v) {
+                            tag = (Integer)radar_btn.getTag();
+                            if(tag == 2) tag = -1;
+                            tag++;
+                            radar_btn.setTag(tag);
+                            radar_btn.setBackground(getResources().getDrawable(radar_pic[tag]));
+                            String distant_text = distance[tag];
+                            SpannableStringBuilder style = new SpannableStringBuilder(distant_text);
+                            style.setSpan(new ForegroundColorSpan(Color.RED),1,5, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                            distance_hint.setText(style);
+                        }
+                    });
+                    //调用方法处理组件数据
+                    sendQuestion(dialogView,builder);
+                }
+            });
+        }
+        /******************************** Add by Wiki ************************************/
+        //发送广播问题的按钮的监听事件处理方法
+        private void sendBroadcastQuestion(final View rootView,ImageView send_broadcast_btn){
+            send_broadcast_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    final View dialogView = LayoutInflater.from(getActivity()).inflate(R.layout.send_question_dialog,null);
+                    builder.setView(dialogView);
+                    dialogView.findViewById(R.id.radar_view).setVisibility(View.GONE);
+
+                    TextView dialog_title = (TextView)dialogView.findViewById(R.id.dialog_title);
+                    dialog_title.setText("广播提问");
+                    sendQuestion(dialogView,builder);
+                }
+            });
+        }
     }
+
 
 
 
