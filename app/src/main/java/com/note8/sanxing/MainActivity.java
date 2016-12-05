@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -112,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+
+
 
         public PlaceholderFragment() {
         }
@@ -162,7 +163,9 @@ public class MainActivity extends AppCompatActivity {
         private void initToday(final View rootView) {
             // declare
             ListView listView = (ListView) rootView.findViewById(R.id.today_list);
-            List<TodayClass> todayList = initTodayData();
+
+            List<TodayClass> todayList = TodayClass.todayList;
+            todayList.get(0);
             TodayAdapter adapter = new TodayAdapter(rootView.getContext(), R.layout.listview_today, todayList);
             listView.setAdapter(adapter);
         }
