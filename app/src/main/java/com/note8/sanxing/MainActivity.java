@@ -32,6 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -234,6 +235,8 @@ public class MainActivity extends AppCompatActivity {
                     Bundle bundle = new Bundle();
                     //  标记主Activity
                     bundle.putInt("index", -1);
+                    bundle.putBoolean("broadcast", true);
+                    bundle.putBoolean("nearby", false);
                     intent.putExtras(bundle);
                     startActivity(intent);
                 }
@@ -247,12 +250,6 @@ public class MainActivity extends AppCompatActivity {
             NearbyAdapter adapter = new NearbyAdapter(
                     rootView.getContext(), R.layout.fragment_nearby_list_item, nearbyList
             );
-//            SimpleAdapter adapter = new SimpleAdapter(
-//                    rootView.getContext(), nearbyList,
-//                    R.layout.fragment_nearby_list_item,
-//                    new String[] {"avatar", "username", "question"},
-//                    new int[] {R.id.avatarImageView, R.id.usernameTextView, R.id.questionTextView}
-//                    );
             listView.setAdapter(adapter);
 
             // get the ask question button and set listener
