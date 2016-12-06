@@ -21,5 +21,6 @@
         <activity android:name=".MeActivity"/>
         <activity android:name=".Answer_question"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".BroadcastDetailActivity"/>
     </application>
 </manifest>
