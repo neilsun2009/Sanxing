@@ -25,6 +25,6 @@
         <activity
             android:name=".activities.AnswerQuestionActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".activities.WeeklyActivity"></activity>
+        <activity android:name=".activities.WeeklyActivity"/>
     </application>
 </manifest>

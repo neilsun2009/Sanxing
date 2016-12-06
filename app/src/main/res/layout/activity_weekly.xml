@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.note8.sanxing.activities.MeActivity"
+    tools:context="com.note8.sanxing.MeActivity"
     android:background="@color/colorBg">
     <!--action bar-->
     <TextView

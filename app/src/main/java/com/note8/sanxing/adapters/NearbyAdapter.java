@@ -69,6 +69,7 @@ public class NearbyAdapter extends ArrayAdapter<NearbyClass>{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, AnswerQuestionActivity.class);
+
                 intent.putExtra("title", nearby.question);
                 intent.putExtra("type", 3);
                 context.startActivity(intent);

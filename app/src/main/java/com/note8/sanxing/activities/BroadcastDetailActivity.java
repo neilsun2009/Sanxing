@@ -77,6 +77,7 @@ public class BroadcastDetailActivity extends AppCompatActivity {
                     type = 2;
                 }
                 Intent intent = new Intent(BroadcastDetailActivity.this, AnswerQuestionActivity.class);
+
                 intent.putExtra("title", sendTitle);
                 intent.putExtra("type", type);
                 startActivity(intent);
