@@ -74,6 +74,7 @@ public class TodayAdapter extends ArrayAdapter<TodayClass> {
                     bundle.putBoolean("newAns", false);
                 }
                 intent = new Intent(view.getContext(), TodayDetailActivity.class);
+                intent.putExtras(bundle);
                 view.getContext().startActivity(intent);
             }
         });
