@@ -97,6 +97,7 @@ public class NearbyAdapter extends ArrayAdapter<NearbyClass>{
                 bundle.putInt("index", position);
                 bundle.putBoolean("broadcast", false);
                 bundle.putBoolean("nearby", true);
+                bundle.putString("title", nearby.question);
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
