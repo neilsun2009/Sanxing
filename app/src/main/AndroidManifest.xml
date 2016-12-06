@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -18,15 +18,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MeActivity"/>
-        <activity android:name=".Answer_question"
+        <activity android:name=".activities.MeActivity"/>
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".BroadcastDetailActivity"/>
-
-        <activity android:name=".MeActivity" />
+        <activity android:name=".activities.BroadcastDetailActivity"/>
+        <activity android:name=".activities.TodayDetailActivity"/>
         <activity
-            android:name=".Answer_question"
+            android:name=".activities.AnswerQuestionActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".WeeklyActivity"></activity>
+        <activity android:name=".activities.WeeklyActivity"></activity>
     </application>
 </manifest>

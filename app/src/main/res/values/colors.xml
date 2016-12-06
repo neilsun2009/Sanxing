@@ -16,4 +16,6 @@
 
     <color name="colorBg">#f2f2f2</color>
     <color name="colorBgWhite">#ffffff</color>
+
+    <color name="colorOmit">#b6b6b6</color>
 </resources>

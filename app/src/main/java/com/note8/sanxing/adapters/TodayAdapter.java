@@ -1,4 +1,4 @@
-package com.note8.sanxing;
+package com.note8.sanxing.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,12 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.note8.sanxing.R;
+import com.note8.sanxing.activities.AnswerQuestionActivity;
+import com.note8.sanxing.items.TodayClass;
 
 import java.util.List;
 
@@ -60,7 +63,7 @@ public class TodayAdapter extends ArrayAdapter<TodayClass> {
                 // todo: replace this with problem detail page
                 /******************************** Add by Wiki ************************************/
                 //从回答问题的按钮点击进入回答问题页面
-                Intent intent = new Intent(view.getContext(),Answer_question.class);
+                Intent intent = new Intent(view.getContext(),AnswerQuestionActivity.class);
                 view.getContext().startActivity(intent);
             }
         });

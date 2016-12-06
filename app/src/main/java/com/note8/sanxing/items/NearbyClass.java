@@ -1,4 +1,6 @@
-package com.note8.sanxing;
+package com.note8.sanxing.items;
+
+import com.note8.sanxing.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -6,7 +6,7 @@
     <string name="title_activity_main">三醒</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
-    <!--broadcast details-->
+    <!--broadcast detail-->
     <string name="broadcast_detail">广播问题详情</string>
     <string name="broadcast_detail_content">
         曾子曰：吾日三省吾身，\n为人谋而不忠乎？\n与朋友交而不信乎？\n传不习乎？
@@ -14,4 +14,10 @@
     <string name="broadcast_detail_info">2016-12-01 13:40\n1024个回答</string>
     <string name="broadcast_detail_source">From   Note8团队</string>
     <string name="broadcast_detail_answer">我要回答</string>
+
+    <!--today's detail-->
+    <string name="today_detail">今日问题</string>
+    <string name="today_detail_answer">我要回答</string>
+    <string name="today_detail_change">更换问题</string>
+    <string name="today_answered">已回答问题</string>
 </resources>

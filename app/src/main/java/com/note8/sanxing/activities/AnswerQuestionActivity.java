@@ -1,6 +1,5 @@
-package com.note8.sanxing;
+package com.note8.sanxing.activities;
 
-import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,10 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
-public class Answer_question extends AppCompatActivity {
+import com.note8.sanxing.R;
+
+public class AnswerQuestionActivity extends AppCompatActivity {
 
     private Button question_btn;//查看问题的按钮
     private Button type_btn;//选择添加回答类型的按钮
@@ -34,22 +34,22 @@ public class Answer_question extends AppCompatActivity {
         question_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Answer_question.this,"回忆一下"+'\n'+"上一次跟父母聊天是什么时候呢？",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AnswerQuestionActivity.this,"回忆一下"+'\n'+"上一次跟父母聊天是什么时候呢？",Toast.LENGTH_SHORT).show();
             }
         });
         //点击添加回答类型的按钮
         type_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Answer_question.this);
-                View dialogView = LayoutInflater.from(Answer_question.this).inflate(R.layout.question_answer_dialog,null);
+                AlertDialog.Builder builder = new AlertDialog.Builder(AnswerQuestionActivity.this);
+                View dialogView = LayoutInflater.from(AnswerQuestionActivity.this).inflate(R.layout.question_answer_dialog,null);
                 builder.setView(dialogView);
                 //插入图片
                 ImageButton picture_btn = (ImageButton)dialogView.findViewById(R.id.dia_picture_btn);
                 picture_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(Answer_question.this,"此功能尚未开通，敬请期待",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AnswerQuestionActivity.this,"此功能尚未开通，敬请期待",Toast.LENGTH_SHORT).show();
                     }
                 });
                 //插入语音
@@ -57,7 +57,7 @@ public class Answer_question extends AppCompatActivity {
                 voice_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(Answer_question.this,"此功能尚未开通，敬请期待",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AnswerQuestionActivity.this,"此功能尚未开通，敬请期待",Toast.LENGTH_SHORT).show();
                     }
                 });
                 //插入表情
@@ -65,7 +65,7 @@ public class Answer_question extends AppCompatActivity {
                 emoticon_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(Answer_question.this,"此功能尚未开通，敬请期待",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AnswerQuestionActivity.this,"此功能尚未开通，敬请期待",Toast.LENGTH_SHORT).show();
                     }
                 });
                 //插入音乐
@@ -73,7 +73,7 @@ public class Answer_question extends AppCompatActivity {
                 music_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(Answer_question.this,"此功能尚未开通，敬请期待",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AnswerQuestionActivity.this,"此功能尚未开通，敬请期待",Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.show();
@@ -84,7 +84,7 @@ public class Answer_question extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String answer_text = text.getText().toString();//回答的内容
-                Toast.makeText(Answer_question.this,"保存成功",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AnswerQuestionActivity.this,"保存成功",Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
