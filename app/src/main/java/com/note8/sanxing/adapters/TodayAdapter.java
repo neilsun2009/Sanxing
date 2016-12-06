@@ -2,6 +2,7 @@ package com.note8.sanxing.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.note8.sanxing.R;
 import com.note8.sanxing.activities.AnswerQuestionActivity;
+import com.note8.sanxing.activities.TodayDetailActivity;
 import com.note8.sanxing.items.TodayClass;
 
 import java.util.List;
@@ -31,7 +33,7 @@ public class TodayAdapter extends ArrayAdapter<TodayClass> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         final TodayClass today = getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
         TextView dateTxt = (TextView) view.findViewById(R.id.today_date_txt);
@@ -60,10 +62,18 @@ public class TodayAdapter extends ArrayAdapter<TodayClass> {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), today.date, Toast.LENGTH_SHORT).show();
-                // todo: replace this with problem detail page
-                /******************************** Add by Wiki ************************************/
-                //从回答问题的按钮点击进入回答问题页面
-                Intent intent = new Intent(view.getContext(),AnswerQuestionActivity.class);
+                Intent intent;
+                Bundle bundle = new Bundle();
+                bundle.putString("date", today.date);
+                bundle.putString("title", today.title);
+                bundle.putString("content", today.content);
+                bundle.putString("bottomText", today.bottomText);
+                if (position == 0) {  //  第一个item进入问题回答界面
+                    bundle.putBoolean("newAns", true);
+                } else {              //  其他进入当天问题及回答浏览界面
+                    bundle.putBoolean("newAns", false);
+                }
+                intent = new Intent(view.getContext(), TodayDetailActivity.class);
                 view.getContext().startActivity(intent);
             }
         });
