@@ -13,5 +13,9 @@
         <item name="android:actionModeBackground">@color/colorBgWhite</item>
     </style>
 
+    <style name="Theme.AppCompat.Light.Dialog.Alert.Self" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
 
 </resources>

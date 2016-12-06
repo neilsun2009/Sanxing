@@ -19,6 +19,7 @@
         </activity>
 
         <activity android:name=".MeActivity"/>
+        <activity android:name=".Answer_question"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
-
 </manifest>
