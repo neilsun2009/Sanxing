@@ -1,4 +1,4 @@
-package com.note8.sanxing;
+package com.note8.sanxing.activities;
 
 
 import android.content.Intent;
@@ -10,8 +10,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.note8.sanxing.broadcastdetail.BDListViewAdapter;
-import com.note8.sanxing.broadcastdetail.BDListViewItem;
+import com.note8.sanxing.adapters.BDListViewAdapter;
+import com.note8.sanxing.R;
+import com.note8.sanxing.items.BDListViewItem;
 
 import java.util.LinkedList;
 
@@ -75,7 +76,7 @@ public class BroadcastDetailActivity extends AppCompatActivity {
                 if (fromBroadcast) {
                     type = 2;
                 }
-                Intent intent = new Intent(BroadcastDetailActivity.this, Answer_question.class);
+                Intent intent = new Intent(BroadcastDetailActivity.this, AnswerQuestionActivity.class);
                 intent.putExtra("title", sendTitle);
                 intent.putExtra("type", type);
                 startActivity(intent);

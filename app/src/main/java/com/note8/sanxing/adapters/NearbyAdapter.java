@@ -1,21 +1,24 @@
-package com.note8.sanxing;
+package com.note8.sanxing.adapters;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.note8.sanxing.R;
+import com.note8.sanxing.activities.AnswerQuestionActivity;
+import com.note8.sanxing.activities.BroadcastDetailActivity;
+import com.note8.sanxing.items.NearbyClass;
 
 import java.util.List;
 
@@ -65,7 +68,7 @@ public class NearbyAdapter extends ArrayAdapter<NearbyClass>{
         answerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, Answer_question.class);
+                Intent intent = new Intent(context, AnswerQuestionActivity.class);
                 intent.putExtra("title", nearby.question);
                 intent.putExtra("type", 3);
                 context.startActivity(intent);

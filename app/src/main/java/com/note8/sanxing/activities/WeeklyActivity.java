@@ -1,8 +1,12 @@
-package com.note8.sanxing;
+package com.note8.sanxing.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
+
+import com.note8.sanxing.R;
+import com.note8.sanxing.adapters.TodayAdapter;
+import com.note8.sanxing.items.TodayClass;
 
 import java.util.ArrayList;
 import java.util.List;

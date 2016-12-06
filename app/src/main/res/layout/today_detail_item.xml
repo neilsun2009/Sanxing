@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/td_listview_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/bd_model_padding_start"
+        android:paddingEnd="@dimen/bd_model_padding_end"
+        android:paddingBottom="35dp"
+        android:paddingTop="35dp"
+        android:gravity="center"
+        android:background="@color/colorBgWhite"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/text_normal"/>
+</LinearLayout>

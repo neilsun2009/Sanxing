@@ -66,6 +66,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary">
             </FrameLayout>
+
             <RelativeLayout
                 android:background="@color/colorBgWhite"
                 android:layout_width="match_parent"
@@ -155,8 +156,7 @@
                     android:layout_width="32dp"
                     android:layout_height="26dp"
                     android:src="@drawable/today_list_arrow"
-                    android:scaleType="fitXY"
-                    />
+                    android:scaleType="fitXY" />
             </LinearLayout>
 
         </LinearLayout>

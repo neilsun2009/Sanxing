@@ -1,15 +1,15 @@
-package com.note8.sanxing.broadcastdetail;
+package com.note8.sanxing.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.note8.sanxing.R;
+import com.note8.sanxing.items.BDListViewItem;
 
 import java.util.LinkedList;
 
