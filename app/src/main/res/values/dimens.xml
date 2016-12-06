@@ -6,8 +6,14 @@
     <dimen name="appbar_padding_top">8dp</dimen>
 
     <!--universal-->
-    <dimen name="text_small">12dp</dimen>
-    <dimen name="text_normal">16dp</dimen>
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_normal">16sp</dimen>
+    <dimen name="text_large">24sp</dimen>
+
+    <!--action bar-->
+    <dimen name="action_bar_height">48dp</dimen>
+    <dimen name="action_bar_text_size">16sp</dimen>
+    <dimen name="action_bar_padding">16dp</dimen>
 
     <!-- models -->
     <dimen name="model_margin_top">16dp</dimen>
@@ -16,5 +22,13 @@
     <!-- find -->
     <dimen name="find_button_width">90dp</dimen>
     <dimen name="find_button_height">26dp</dimen>
-    <dimen name="find_button_text">12dp</dimen>
+    <dimen name="find_button_text">12sp</dimen>
+
+    <!--broadcast-->
+    <dimen name="broadcast_image_height">140dp</dimen>
+
+    <!--broadcast detail-->
+    <dimen name="bd_tag_padding">3dp</dimen>
+    <dimen name="bd_model_padding_start">5dp</dimen>
+    <dimen name="bd_model_padding_end">5dp</dimen>
 </resources>

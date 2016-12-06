@@ -39,6 +39,7 @@
                     android:src="@drawable/find_list_1"
                     android:scaleType="fitXY"/>
                 <Button
+                    android:id="@+id/find_btn_1"
                     android:layout_width="@dimen/find_button_width"
                     android:layout_height="@dimen/find_button_height"
                     android:background="@drawable/find_button_bg"
@@ -73,6 +74,7 @@
                     android:src="@drawable/find_list_2"
                     android:scaleType="fitXY"/>
                 <Button
+                    android:id="@+id/find_btn_2"
                     android:layout_width="@dimen/find_button_width"
                     android:layout_height="@dimen/find_button_height"
                     android:background="@drawable/find_button_bg"
@@ -107,6 +109,7 @@
                     android:src="@drawable/find_list_3"
                     android:scaleType="fitXY"/>
                 <Button
+                    android:id="@+id/find_btn_3"
                     android:layout_width="@dimen/find_button_width"
                     android:layout_height="@dimen/find_button_height"
                     android:background="@drawable/find_button_bg"

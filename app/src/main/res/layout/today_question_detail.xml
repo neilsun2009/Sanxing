@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBg">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/colorAccent">
+        <TextView
+            android:id="@+id/td_title"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="@dimen/text_normal"
+            android:textColor="@color/colorTextWhite"
+            android:layout_marginStart="16dp"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:text="@string/today_detail"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/td_main_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/model_margin_top"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:paddingStart="@dimen/bd_model_padding_start"
+        android:paddingEnd="@dimen/bd_model_padding_end"
+        android:background="@color/colorBgWhite">
+
+        <TextView
+            android:id="@+id/td_main_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/bd_model_padding_start"
+            android:paddingEnd="@dimen/bd_model_padding_end"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/text_large"
+            android:text="@string/broadcast_detail_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorBg" />
+
+        <Button
+            android:id="@+id/td_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBgWhite"
+            android:textSize="@dimen/text_normal"
+            android:textColor="@color/colorTextHighlight"
+            android:text="@string/today_detail_answer"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorBg" />
+
+        <Button
+            android:id="@+id/td_change"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBgWhite"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_normal"
+            android:text="@string/today_detail_change"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/bd_model_padding_start"
+            android:paddingEnd="@dimen/bd_model_padding_end"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:background="@color/colorBgWhite"
+            android:textColor="@color/colorOmit"
+            android:textSize="@dimen/text_normal"
+            android:text="@string/today_answered"/>
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorBg" />
+
+    <ListView
+        android:id="@+id/td_listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+    </ListView>
+</LinearLayout>

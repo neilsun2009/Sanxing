@@ -5,6 +5,9 @@
     <color name="colorAccentDarker">#b22e21</color>
     <color name="colorAccent">#d13828</color>
 
+    <color name="colorActionBarBg">#f35a4a</color>
+    <color name="colorActionBarText">#ffffff</color>
+
     <color name="colorTextTitle">#000000</color>
     <color name="colorTextHighlight">#f35a4a</color>
     <color name="colorTextContent">#333333</color>
@@ -13,4 +16,6 @@
 
     <color name="colorBg">#f2f2f2</color>
     <color name="colorBgWhite">#ffffff</color>
+
+    <color name="colorOmit">#b6b6b6</color>
 </resources>

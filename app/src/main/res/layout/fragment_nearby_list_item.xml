@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nearby_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="44dp"
+    android:paddingRight="44dp"
+    android:paddingTop="8dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/nearby_avatar1"
+        android:id="@+id/avatarImageView"
+        android:layout_weight="0"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:id="@+id/nearby_text"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="提问者"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/usernameTextView"
+                android:textColor="@color/colorTextTitle"
+                android:textSize="@dimen/text_normal" />
+
+            <TextView
+                android:text="我是问题1我是问题1我是问题1我是问题1我是问题1我是问题1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/questionTextView"
+                android:textColor="@color/colorTextContent"
+                android:textSize="@dimen/text_small" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:padding="4dp">
+
+            <Button
+                android:text="回答"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/nearbyAnswerButton"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:minHeight="0dp"
+                android:drawableLeft="@drawable/nearby_icon_reply"
+                android:textColor="@color/colorTextContent"
+                android:textSize="@dimen/text_small" />
+
+            <Button
+                android:text="喜欢"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/nearbyLikeButton"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:minHeight="0dp"
+                android:drawableLeft="@drawable/nearby_icon_like"
+                android:textColor="@color/colorTextContent"
+                android:textSize="@dimen/text_small" />
+
+            <Button
+                android:text="删除"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/nearbyDeleteButton"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:minHeight="0dp"
+                android:drawableLeft="@drawable/nearby_icon_delete"
+                android:textColor="@color/colorTextContent"
+                android:textSize="@dimen/text_small" />
+
+            <Button
+                android:text="更多"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/nearbyMoreButton"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:minHeight="0dp"
+                android:drawableLeft="@drawable/nearby_icon_more"
+                android:textColor="@color/colorTextContent"
+                android:textSize="@dimen/text_small" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

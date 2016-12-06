@@ -6,19 +6,25 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <activity android:name=".activities.MeActivity"/>
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activities.BroadcastDetailActivity"/>
+        <activity android:name=".activities.TodayDetailActivity"/>
+        <activity
+            android:name=".activities.AnswerQuestionActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activities.WeeklyActivity"></activity>
+    </application>
 </manifest>

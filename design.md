@@ -1,8 +1,32 @@
 # 三醒页面设计文档
 
+## 整体页面
+> 写到后面，难以一一详细说明了，就在置顶里大致说明了，主要就是：
+
+* 配色，主题颜色的红色是@color/colorPrimary，背景颜色灰色是@color/colorBg，白色是@color/colorBgWhite
+* 字体颜色，标题为@color/colorTextTitle，内容为@color/colorTextContent,更浅的字体为@color/colorTextShallow
+* 字体大小，标题等大字体为@dimen/text_normal，内容等小字体为@dimen/text_small，其他可以自行定义
+* 边距之类的基本就是16dp，8dp这样，得体即可
+* 大小的话，dp和px在这套设计图里的换算关系是 1dp = 2px
+
+## 顶栏Action Bar
+* 可以参考activity_me.xml
+* 样式定义为
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/action_bar_height"
+    android:background="@color/colorActionBarBg"
+    android:text="标题名称"
+    android:paddingLeft="@dimen/action_bar_padding"
+    android:textSize="@dimen/action_bar_text_size"
+    android:gravity="center_vertical"
+    android:textColor="@color/colorActionBarText"
+    android:elevation="3dp"
+
+
 ## 今日页面
 > 类似于时间轴，在首页上显示每天三个问题中的一个
 今日问题在未回答时，不显示问题详情，只显示快去回答
+周报的页面与此类似，只不过左侧日期会变成星期 12.5~12.11 之类的
 
 * 页面背景@color/colorBg
 * 每日信息为列表项，推荐使用listview完成，即在另一个xml中完成列表项内部布局、java中添加数据
@@ -19,6 +43,7 @@
 * 右侧箭头30dp*25dp, 图片today_list_arrow.png
 * 下拉查看最新和下箭头暂时不需要实现
 
+
 ## 附近页面
 > 显示附近问题
 
@@ -32,4 +57,34 @@
 * 问题标题颜色@color/colorTextTitle，大小@dimen/text_normal
 * 内容颜色@color/colorTextContent，大小@dimen/text_small
 * 下方按钮大小15dp宽高，对应文字@color/colorTextShalow，大小@dimen/text_small，图标资源在nearby_icon_***.png
+* 右上方发起提问按钮，图像nearby_icon_add.png，大小36dp*36dp,右边距和上边距14dp
+
+## 提问页面
+> 在广播页面和附近页面会支持用户提交问题，也就是投稿或者提问
+形式是一个对话框，AlertDialog之类的dialog
+附近页面会多一个地理信息，那个雷达图标可以点击，一共三个状态，由深到浅分别500m(默认)\300m\100m
+
+> via 明宇
+提问部分，考虑到提问部分并不需要很多东西输入，制作成对话框更简洁。
+第⼀一行默认标签那里可以左右滑动，第二行自定义标签那里可以输入，
+⼀一旦输入，颜色变红。
+
+## 问题详情
+> 查看问题详情，三种问题模式都会有，其中广播页面和附近页面会加载所有人的评论（回答）
+而今日问题和周报只会显示自己的评论，也就是回答
+可以回答的时候，会显示“回答问题”按钮（eg. 回答今日问题和回答今日广播问题）
+另外今日问题和周报分别有3个和7个问题，暂时就做成一个问题详情的列表形式好了...
+
+## 回答问题
+> 这里直接在另一个页面进行了，一个大的文本框，点击加号可以添加其他元素，暂时就是图片就好了
+如果来不及，图片都可以先不加了orz...
+
+> via 明宇
+不使用弹出对话框，改成单独⼀一个输入页面（提供更专心的输入体验）。
+默认隐藏原问题，通过点击上方!图标，原问题从上方划出显示⼀一段时间（或用Toast、对话框之类的实现）
+
+## 其他布局问题
+* 返回按钮可以不需要，在安卓规范里推荐用屏幕下方的虚拟按钮实现
+* 问题详情和回答问题的顶栏自己在linearlayout规定一块矩形区域吧，因为整个app的actionBar是禁用的，背景就用主题红色即可
+
 
