@@ -165,7 +165,6 @@ public class MainActivity extends AppCompatActivity {
             ListView listView = (ListView) rootView.findViewById(R.id.today_list);
 
             List<TodayClass> todayList = TodayClass.todayList;
-            todayList.get(0);
             TodayAdapter adapter = new TodayAdapter(rootView.getContext(), R.layout.listview_today, todayList);
             listView.setAdapter(adapter);
         }

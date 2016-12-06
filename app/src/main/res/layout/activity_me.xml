@@ -70,7 +70,8 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/me_icon_arrow"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:visibility="invisible"/>
     </LinearLayout>
     <!--line 2-->
     <RelativeLayout

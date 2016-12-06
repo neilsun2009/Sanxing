@@ -18,10 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MeActivity"/>
-        <activity android:name=".Answer_question"
-            android:windowSoftInputMode="adjustPan"/>
-
+        <activity android:name=".MeActivity" />
+        <activity
+            android:name=".Answer_question"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".WeeklyActivity"></activity>
     </application>
 
 </manifest>
