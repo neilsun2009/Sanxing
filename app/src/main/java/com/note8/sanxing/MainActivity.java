@@ -1,6 +1,7 @@
 package com.note8.sanxing;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -31,6 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -101,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -111,8 +112,6 @@ public class MainActivity extends AppCompatActivity {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
-
-
 
         public PlaceholderFragment() {
         }
@@ -190,6 +189,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         private void initBroadcast(final View rootView) {
+            //  以往问题的数目
+            final int OLD_QUESTION_SIZE = 3;
+
             // declare
             ImageView todayImg = (ImageView) rootView.findViewById(R.id.broadcast_today_img);
             ImageView submitImg = (ImageView) rootView.findViewById(R.id.broadcast_submit_img);
@@ -200,7 +202,9 @@ public class MainActivity extends AppCompatActivity {
 
             // list of history broadcast questions
             final int[] listImg = new int[] {R.drawable.broadcast_img_2, R.drawable.broadcast_img_3, R.drawable.broadcast_img_4};
-            for (int i = 0; i < 3; ++i) {
+            for (int i = 0; i < OLD_QUESTION_SIZE; ++i) {
+                //  记录ImageView的坐标传入detail的Activity
+                final int index = i;
                 ImageView imageView = new ImageView(rootView.getContext());
                 imageView.setImageResource(listImg[i]);
 //                imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int)getResources().getDimension(R.dimen.broadcast_image_height)));
@@ -208,14 +212,34 @@ public class MainActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int)getResources().getDimension(R.dimen.broadcast_image_height));
                 lp.setMargins(0, (int)getResources().getDimension(R.dimen.model_margin_title), 0, 0);
                 imageView.setLayoutParams(lp);
+                //  往日问题绑定点击事件监听器
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        // todo: open question detail activity
+                        Intent intent = new Intent(getActivity(), BroadcastDetailActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("index", index);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
                     }
                 });
                 linearLayout.addView(imageView);
             }
+
+            //  当日问题绑定点击事件监听器
+            todayImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), BroadcastDetailActivity.class);
+                    Bundle bundle = new Bundle();
+                    //  标记主Activity
+                    bundle.putInt("index", -1);
+                    bundle.putBoolean("broadcast", true);
+                    bundle.putBoolean("nearby", false);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+            });
         }
 
         private void initNearby(final View rootView) {
@@ -225,12 +249,6 @@ public class MainActivity extends AppCompatActivity {
             NearbyAdapter adapter = new NearbyAdapter(
                     rootView.getContext(), R.layout.fragment_nearby_list_item, nearbyList
             );
-//            SimpleAdapter adapter = new SimpleAdapter(
-//                    rootView.getContext(), nearbyList,
-//                    R.layout.fragment_nearby_list_item,
-//                    new String[] {"avatar", "username", "question"},
-//                    new int[] {R.id.avatarImageView, R.id.usernameTextView, R.id.questionTextView}
-//                    );
             listView.setAdapter(adapter);
 
             // get the ask question button and set listener
@@ -378,7 +396,7 @@ public class MainActivity extends AppCompatActivity {
         }
         /******************************** Add by Wiki ************************************/
         //发送广播问题的按钮的监听事件处理方法
-        private void sendBroadcastQuestion(final View rootView,ImageView send_broadcast_btn){
+        private void sendBroadcastQuestion(final View rootView, ImageView send_broadcast_btn) {
             send_broadcast_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

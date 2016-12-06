@@ -5,4 +5,13 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">三醒</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <!--broadcast details-->
+    <string name="broadcast_detail">广播问题详情</string>
+    <string name="broadcast_detail_content">
+        曾子曰：吾日三省吾身，\n为人谋而不忠乎？\n与朋友交而不信乎？\n传不习乎？
+    </string>
+    <string name="broadcast_detail_info">2016-12-01 13:40\n1024个回答</string>
+    <string name="broadcast_detail_source">From   Note8团队</string>
+    <string name="broadcast_detail_answer">我要回答</string>
 </resources>

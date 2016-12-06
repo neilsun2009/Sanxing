@@ -14,15 +14,19 @@
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".MeActivity"/>
+        <activity android:name=".Answer_question"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".BroadcastDetailActivity"/>
+
         <activity android:name=".MeActivity" />
         <activity
             android:name=".Answer_question"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".WeeklyActivity"></activity>
     </application>
-
 </manifest>

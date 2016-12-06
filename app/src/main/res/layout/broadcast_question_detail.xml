@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBg">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/colorAccent">
+        <TextView
+            android:id="@+id/bd_title"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="@dimen/text_normal"
+            android:textColor="@color/colorTextWhite"
+            android:layout_marginStart="16dp"
+            android:gravity="center_vertical"
+            android:text="@string/broadcast_detail"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bd_main_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/model_margin_top"
+        android:paddingStart="@dimen/bd_model_padding_start"
+        android:paddingEnd="@dimen/bd_model_padding_end"
+        android:background="@color/colorBgWhite">
+
+        <LinearLayout
+            android:id="@+id/bd_tags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/broadcast_detail_tag_style"
+                android:text="标签1" />
+            <TextView
+                style="@style/broadcast_detail_tag_style"
+                android:text="比较长的标签2" />
+            <TextView
+                style="@style/broadcast_detail_tag_style"
+                android:text="Tag3" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/bd_main_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bd_tags"
+            android:paddingStart="@dimen/bd_model_padding_start"
+            android:paddingEnd="@dimen/bd_model_padding_end"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/text_large"
+            android:text="@string/broadcast_detail_content"/>
+
+        <TextView
+            android:id="@+id/bd_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bd_main_content"
+            android:paddingStart="@dimen/bd_model_padding_start"
+            android:paddingEnd="@dimen/bd_model_padding_end"
+            android:layout_marginBottom="10dp"
+            android:textSize="@dimen/text_small"
+            android:text="@string/broadcast_detail_info"/>
+
+        <TextView
+            android:id="@+id/bd_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bd_main_content"
+            android:layout_alignParentEnd="true"
+            android:paddingStart="@dimen/bd_model_padding_start"
+            android:paddingEnd="@dimen/bd_model_padding_end"
+            android:layout_marginBottom="10dp"
+            android:textSize="@dimen/text_small"
+            android:text="@string/broadcast_detail_source"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorBg" />
+
+    <Button
+        android:id="@+id/bd_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBgWhite"
+        android:textSize="@dimen/text_normal"
+        android:text="@string/broadcast_detail_answer"/>
+
+    <ListView
+        android:id="@+id/bd_listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/model_margin_top"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:dividerHeight="15dp"
+        android:divider="@color/colorBg">
+    </ListView>
+</LinearLayout>
