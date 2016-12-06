@@ -216,9 +216,24 @@ public class MainActivity extends AppCompatActivity {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        String title = "";
+                        switch (index) {
+                            case 0 :
+                                title = "你收过最珍贵的礼物是什么";
+                                break;
+                            case 1 :
+                                title = "你听过最失望的话是什么";
+                                break;
+                            case 2 :
+                                title = "你做过那件事让你感觉自己很善良";
+                                break;
+                        }
                         Intent intent = new Intent(getActivity(), BroadcastDetailActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt("index", index);
+                        bundle.putBoolean("broadcast", true);
+                        bundle.putBoolean("nearby", false);
+                        bundle.putString("title", title);
                         intent.putExtras(bundle);
                         startActivity(intent);
                     }
@@ -236,6 +251,7 @@ public class MainActivity extends AppCompatActivity {
                     bundle.putInt("index", -1);
                     bundle.putBoolean("broadcast", true);
                     bundle.putBoolean("nearby", false);
+                    bundle.putString("title", "十年来，你坚持最久的一件事是什么");
                     intent.putExtras(bundle);
                     startActivity(intent);
                 }
