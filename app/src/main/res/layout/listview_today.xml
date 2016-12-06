@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_normal"
         android:textColor="@color/colorPrimary"
-        android:text="12-10"/>
+        android:text="12-10"
+        android:textAlignment="center"/>
     <!--the point and the line-->
     <RelativeLayout
         android:layout_width="wrap_content"
