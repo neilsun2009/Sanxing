@@ -37,13 +37,13 @@
             android:orientation="horizontal">
             <TextView
                 style="@style/broadcast_detail_tag_style"
-                android:text="标签1" />
+                android:text="热点热议" />
             <TextView
                 style="@style/broadcast_detail_tag_style"
-                android:text="比较长的标签2" />
+                android:text="哲学思考" />
             <TextView
                 style="@style/broadcast_detail_tag_style"
-                android:text="Tag3" />
+                android:text="回忆性问题" />
         </LinearLayout>
 
         <TextView

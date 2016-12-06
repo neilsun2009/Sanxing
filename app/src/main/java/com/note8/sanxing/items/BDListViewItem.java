@@ -1,4 +1,4 @@
-package com.note8.sanxing.broadcastdetail;
+package com.note8.sanxing.items;
 
 public class BDListViewItem {
     private int userAvatarRes;
