@@ -245,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
         private void initNearby(final View rootView) {
             // get the listview and set its adapter
             ListView listView = (ListView) rootView.findViewById(R.id.nearbyListView);
-            List<NearbyClass> nearbyList = initNearbyData();
+            List<NearbyClass> nearbyList = NearbyClass.nearbyList;
             NearbyAdapter adapter = new NearbyAdapter(
                     rootView.getContext(), R.layout.fragment_nearby_list_item, nearbyList
             );
@@ -253,12 +253,6 @@ public class MainActivity extends AppCompatActivity {
 
             // get the ask question button and set listener
             ImageButton askButton = (ImageButton) rootView.findViewById(R.id.askNearbyButton);
-            askButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(rootView.getContext(), "put intent to ask page here", Toast.LENGTH_SHORT).show();
-                }
-            } );
             /******************************** Add by Wiki ************************************/
             //点击编辑问题的按钮弹出问题编辑对话框（暂将该按钮随意放在附近页面）
             // final Button send_nearby_btn = (Button)rootView.findViewById(R.id.send_nearby_btn);
@@ -269,18 +263,6 @@ public class MainActivity extends AppCompatActivity {
             TextView numOfQuestionNearbyTextView = (TextView) rootView.findViewById(R.id.numOfQuestionsNearByTextView);
             numOfPeopleNearbyTextView.setText("3");
             numOfQuestionNearbyTextView.setText("20");
-        }
-
-        private ArrayList<NearbyClass> initNearbyData() {
-            NearbyClass[] nearbyArray = {
-                    new NearbyClass(R.drawable.nearby_avatar1, "提问者1", "我是问题1我是问题1我是问题1我是问题1我是问题1我是问题1我是问题1"),
-                    new NearbyClass(R.drawable.nearby_avatar2, "提问者2", "我是问题2我是问题2我是问题2我是问题2我是问题2我是问题2我是问题2我是问题2我是问题2"),
-                    new NearbyClass(R.drawable.nearby_avatar3, "提问者3", "我是问题3我是问题3我是问题3我是问题3我是问题3我是问题3我是问题3我是问题3我是问题3我是问题3我是问题3")
-            };
-
-            ArrayList<NearbyClass> nearbyList = new ArrayList(Arrays.asList(nearbyArray));
-
-            return nearbyList;
         }
 
         private void initFind(final View rootView) {

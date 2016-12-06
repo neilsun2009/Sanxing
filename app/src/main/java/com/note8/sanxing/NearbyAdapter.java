@@ -25,10 +25,12 @@ import java.util.List;
 
 public class NearbyAdapter extends ArrayAdapter<NearbyClass>{
     private int resourceId;
+    private Context context;
 
     public NearbyAdapter(Context context, int resource, List<NearbyClass> objects) {
         super(context, resource, objects);
         resourceId = resource;
+        this.context = context;
     }
 
     @Override
@@ -56,7 +58,6 @@ public class NearbyAdapter extends ArrayAdapter<NearbyClass>{
         for (int i = 0; i < 4; ++i) {
             Drawable buttonImage = ContextCompat.getDrawable(view.getContext(), buttonImageIDs[i]);
             buttonImage.setBounds(0, 0, 40, 40);  //  第一0是距左边距离，第二0是距上边距离，40分别是长宽
-            Log.d("Sanxing", "button:" + i + " "+ buttons[i]);
             buttons[i].setCompoundDrawables(buttonImage, null, null, null);//只放左边
         }
 
@@ -64,7 +65,10 @@ public class NearbyAdapter extends ArrayAdapter<NearbyClass>{
         answerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "answer no." + position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, Answer_question.class);
+                intent.putExtra("title", nearby.question);
+                intent.putExtra("type", 3);
+                context.startActivity(intent);
             }
         });
         likeButton.setOnClickListener(new View.OnClickListener() {
@@ -79,27 +83,26 @@ public class NearbyAdapter extends ArrayAdapter<NearbyClass>{
                 Toast.makeText(getContext(), "delete no." + position, Toast.LENGTH_SHORT).show();
             }
         });
-        moreButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), "more no." + position, Toast.LENGTH_SHORT).show();
-            }
-        });
 
-        LinearLayout text = (LinearLayout) view.findViewById(R.id.nearby_text);
-        text.setOnClickListener(new View.OnClickListener() {
+        // create listener to the detail page (BroadcastDetailActivity)
+        View.OnClickListener moreOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), BroadcastDetailActivity.class);
+                Intent intent = new Intent(context, BroadcastDetailActivity.class);
                 Bundle bundle = new Bundle();
                 //  数据可从这里传入
                 bundle.putInt("index", position);
                 bundle.putBoolean("broadcast", false);
                 bundle.putBoolean("nearby", true);
                 intent.putExtras(bundle);
-                getContext().startActivity(intent);
+                context.startActivity(intent);
             }
-        });
+        };
+
+        // set listener to the 'more' button and the text layout
+        moreButton.setOnClickListener(moreOnClickListener);
+        LinearLayout text = (LinearLayout) view.findViewById(R.id.nearby_text);
+        text.setOnClickListener(moreOnClickListener);
 
         return view;
     }
