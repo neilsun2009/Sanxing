@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.MainActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -19,13 +19,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.MeActivity"/>
+        <activity android:name=".activities.MeActivity"
+            android:launchMode="singleInstance"/>
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".activities.BroadcastDetailActivity"/>
-        <activity android:name=".activities.TodayDetailActivity"/>
+        <activity android:name=".activities.BroadcastDetailActivity" />
+        <activity android:name=".activities.TodayDetailActivity" />
         <activity
             android:name=".activities.AnswerQuestionActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".activities.WeeklyActivity"/>
+        <activity android:name=".activities.WeeklyActivity"
+            android:launchMode="singleInstance"/>
     </application>
 </manifest>

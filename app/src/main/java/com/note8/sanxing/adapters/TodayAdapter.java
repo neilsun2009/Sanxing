@@ -60,6 +60,9 @@ public class TodayAdapter extends ArrayAdapter<TodayClass> {
             answerImg.setVisibility(View.GONE);
             answerTxt.setVisibility(View.VISIBLE);
         }
+        if (!today.weeklyTitle.isEmpty()) {
+            titleTxt.setText(today.weeklyTitle);
+        }
         totalLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
