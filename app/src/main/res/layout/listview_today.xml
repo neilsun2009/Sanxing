@@ -43,6 +43,7 @@
     </RelativeLayout>
     <!--the dialog-->
     <LinearLayout
+        android:id="@+id/today_total_layout"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
