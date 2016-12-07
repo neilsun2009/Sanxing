@@ -91,7 +91,7 @@
                 android:textSize="@dimen/text_small" />
 
             <Button
-                android:text="更多"
+                android:text="详情"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/nearbyMoreButton"
