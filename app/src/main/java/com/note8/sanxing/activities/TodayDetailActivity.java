@@ -78,5 +78,6 @@ public class TodayDetailActivity extends AppCompatActivity implements View.OnCli
         intent.putExtra("type", 1);
         intent.putExtra("title", "说一下你今天的收获吧");
         startActivity(intent);
+        finish();
     }
 }

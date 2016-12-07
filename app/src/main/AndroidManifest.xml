@@ -23,7 +23,8 @@
             android:launchMode="singleInstance"/>
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".activities.BroadcastDetailActivity" />
-        <activity android:name=".activities.TodayDetailActivity" />
+        <activity android:name=".activities.TodayDetailActivity"
+            android:launchMode="singleInstance"/>
         <activity
             android:name=".activities.AnswerQuestionActivity"
             android:windowSoftInputMode="adjustPan" />
