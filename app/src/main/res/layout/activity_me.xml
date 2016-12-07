@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/action_bar_height"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         android:text="个人中心"
         android:paddingLeft="@dimen/action_bar_padding"
         android:textSize="@dimen/action_bar_text_size"

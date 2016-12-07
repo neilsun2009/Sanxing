@@ -100,11 +100,13 @@ public class AnswerQuestionActivity extends AppCompatActivity {
                     Toast.makeText(AnswerQuestionActivity.this,"提交成功，等待审核",Toast.LENGTH_SHORT).show();
                 if (type == 1) {
                     String answer_text = text.getText().toString();//回答的内容
-                    TodayClass.todayList.get(0).bottomText = "查看全部";
+                    TodayClass.todayList.get(0).bottomText = "今日回答(3/3)，查看全部";
                     TodayClass.todayList.get(0).title = title;
                     TodayClass.todayList.get(0).content = answer_text;
-                    TodayClass.todayList.get(0).showAnswer = true;
+                    TodayClass.todayList.get(0).gotoAnswer = true;
                     Toast.makeText(AnswerQuestionActivity.this,"保存成功",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(AnswerQuestionActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
                 finish();
             }

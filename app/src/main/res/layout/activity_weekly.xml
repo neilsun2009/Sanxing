@@ -12,7 +12,7 @@
         android:layout_height="@dimen/action_bar_height"
         android:text="我的周报"
         android:paddingLeft="@dimen/action_bar_padding"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         android:gravity="center_vertical"
         android:textSize="@dimen/action_bar_text_size"
         android:textColor="@color/colorActionBarText"

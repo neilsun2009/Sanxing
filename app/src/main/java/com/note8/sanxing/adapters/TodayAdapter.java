@@ -63,7 +63,7 @@ public class TodayAdapter extends ArrayAdapter<TodayClass> {
         totalLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), today.date, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), today.date, Toast.LENGTH_SHORT).show();
                 Intent intent;
                 Bundle bundle = new Bundle();
                 bundle.putString("date", today.date);
@@ -75,32 +75,32 @@ public class TodayAdapter extends ArrayAdapter<TodayClass> {
 //                } else {              //  其他进入当天问题及回答浏览界面
 //                    bundle.putBoolean("newAns", false);
 //                }
-                bundle.putBoolean("newAns", !today.showAnswer);
+                bundle.putBoolean("newAns", !today.gotoAnswer);
                 intent = new Intent(view.getContext(), TodayDetailActivity.class);
                 intent.putExtras(bundle);
                 view.getContext().startActivity(intent);
             }
         });
-        goBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), today.date, Toast.LENGTH_SHORT).show();
-                Intent intent;
-                Bundle bundle = new Bundle();
-                bundle.putString("date", today.date);
-                bundle.putString("title", today.title);
-                bundle.putString("content", today.content);
-                bundle.putString("bottomText", today.bottomText);
-                if (position == 0) {  //  第一个item进入问题回答界面
-                    bundle.putBoolean("newAns", true);
-                } else {              //  其他进入当天问题及回答浏览界面
-                    bundle.putBoolean("newAns", false);
-                }
-                intent = new Intent(view.getContext(), TodayDetailActivity.class);
-                intent.putExtras(bundle);
-                view.getContext().startActivity(intent);
-            }
-        });
+//        goBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(getContext(), today.date, Toast.LENGTH_SHORT).show();
+//                Intent intent;
+//                Bundle bundle = new Bundle();
+//                bundle.putString("date", today.date);
+//                bundle.putString("title", today.title);
+//                bundle.putString("content", today.content);
+//                bundle.putString("bottomText", today.bottomText);
+//                if (position == 0) {  //  第一个item进入问题回答界面
+//                    bundle.putBoolean("newAns", true);
+//                } else {              //  其他进入当天问题及回答浏览界面
+//                    bundle.putBoolean("newAns", false);
+//                }
+//                intent = new Intent(view.getContext(), TodayDetailActivity.class);
+//                intent.putExtras(bundle);
+//                view.getContext().startActivity(intent);
+//            }
+//        });
         // the first vertical line of the view should be cut short
         if (today.id == 0) {
             FrameLayout line = (FrameLayout) view.findViewById(R.id.today_line_layout);

@@ -27,28 +27,28 @@ public class WeeklyActivity extends AppCompatActivity {
 
     private ArrayList<TodayClass> initWeeklyData() {
         ArrayList<TodayClass> list = new ArrayList<>();
-        TodayClass temp = new TodayClass(0, "12-05\n~\n12-11", "一句让你觉得印象深刻的话", "The violent delights have violent ends.",
-                0, false, "查看全部", true);
+        TodayClass temp = new TodayClass(0, "11-28\n~\n12-04", "一句让你觉得印象深刻的话", "The violent delights have violent ends.",
+                0, false, "查看全部", true, true);
         list.add(temp);
-        temp = new TodayClass(1, "11-28\n" +
+        temp = new TodayClass(1, "11-21\n" +
                 "~\n" +
-                "12-14", "今晚做到比平时早睡了吗", "好多作业要写啊，实在没办法早睡。。。",
-                0, false, "查看全部", true);
+                "11-27", "今晚做到比平时早睡了吗", "好多作业要写啊，实在没办法早睡。。。",
+                0, false, "查看全部", true, true);
         list.add(temp);
-        temp = new TodayClass(2, "11-21\n" +
+        temp = new TodayClass(2, "11-14\n" +
                 "~\n" +
-                "11-27", "拍一张最能代表今天心情的照片", "夕阳无限好，可惜近黄昏",
-                R.drawable.weekly_list_photo, true, "查看全部", true);
+                "11-20", "拍一张最能代表今天心情的照片", "夕阳无限好，可惜近黄昏",
+                R.drawable.weekly_list_photo, true, "查看全部", true, true);
         list.add(temp);
-        temp = new TodayClass(3, "11-14\n" +
+        temp = new TodayClass(3, "11-07\n" +
                 "~\n" +
-                "11-20", "你今天想的最多的那个人是谁", "计网老师，明天期中考了，不知道有没有师生情啊",
-                0, false, "查看全部", true);
+                "11-13", "你今天想的最多的那个人是谁", "计网老师，明天期中考了，不知道有没有师生情啊",
+                0, false, "查看全部", true, true);
         list.add(temp);
-        temp = new TodayClass(4, "11-07\n" +
+        temp = new TodayClass(4, "11-01\n" +
                 "~\n" +
-                "11-13", "用天气描述你的心情", "晴有时多云，西南风2至3级，湿度10%",
-                0, false, "查看全部", true);
+                "11-06", "用天气描述你的心情", "晴有时多云，西南风2至3级，湿度10%",
+                0, false, "查看全部", true, true);
         list.add(temp);
         return list;
     }
