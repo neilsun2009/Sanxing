@@ -70,11 +70,12 @@ public class TodayAdapter extends ArrayAdapter<TodayClass> {
                 bundle.putString("title", today.title);
                 bundle.putString("content", today.content);
                 bundle.putString("bottomText", today.bottomText);
-                if (position == 0) {  //  第一个item进入问题回答界面
-                    bundle.putBoolean("newAns", true);
-                } else {              //  其他进入当天问题及回答浏览界面
-                    bundle.putBoolean("newAns", false);
-                }
+//                if (position == 0) {  //  第一个item进入问题回答界面
+//                    bundle.putBoolean("newAns", true);
+//                } else {              //  其他进入当天问题及回答浏览界面
+//                    bundle.putBoolean("newAns", false);
+//                }
+                bundle.putBoolean("newAns", !today.showAnswer);
                 intent = new Intent(view.getContext(), TodayDetailActivity.class);
                 intent.putExtras(bundle);
                 view.getContext().startActivity(intent);
