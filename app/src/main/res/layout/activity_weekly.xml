@@ -10,11 +10,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/action_bar_height"
-        android:background="@color/colorActionBarBg"
         android:text="我的周报"
         android:paddingLeft="@dimen/action_bar_padding"
-        android:textSize="@dimen/action_bar_text_size"
+        android:background="@color/colorAccent"
         android:gravity="center_vertical"
+        android:textSize="@dimen/action_bar_text_size"
         android:textColor="@color/colorActionBarText"
         android:elevation="3dp"/>
     <!--first line-->
