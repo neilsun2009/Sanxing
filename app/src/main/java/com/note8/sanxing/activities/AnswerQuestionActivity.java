@@ -104,7 +104,7 @@ public class AnswerQuestionActivity extends AppCompatActivity {
                 if (type == 1) {
                     if(!answer_text.equals("")){
 
-                        TodayClass.todayList.get(0).bottomText = "今日回答(3/3)，查看全部";
+                        TodayClass.todayList.get(0).bottomText = "今日三问已完成，查看全部";
                         TodayClass.todayList.get(0).title = title;
                         TodayClass.todayList.get(0).content = answer_text;
                         TodayClass.todayList.get(0).gotoAnswer = true;

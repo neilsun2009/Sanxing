@@ -40,7 +40,7 @@ public class TodayClass{
     private static ArrayList<TodayClass> initTodayData() {
         ArrayList<TodayClass> list = new ArrayList<>();
         TodayClass temp = new TodayClass(0, "12-10", "今天最开心的事情是什么", "花了五六个小时，终于de好bug了",
-                0, false, "今天回答(2/3)，继续回答", true, false, "");
+                0, false, "今日回答(2/3)，继续回答", true, false, "");
         list.add(temp);
         temp = new TodayClass(1, "12-09", "今天看了什么美剧吗", "最近看了HBO的西部世界，探讨了很多关于人工智能获得自主意识之后，产生的矛盾，很适合程序员看~",
                 0, false, "查看全部", true, true, "");

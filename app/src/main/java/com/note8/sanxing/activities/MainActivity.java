@@ -57,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView mainUserImg;
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-    }
+//    @Override
+//    public void onResume(){
+//        super.onResume();
+//        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+//        mViewPager = (ViewPager) findViewById(R.id.container);
+//        mViewPager.setAdapter(mSectionsPagerAdapter);
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

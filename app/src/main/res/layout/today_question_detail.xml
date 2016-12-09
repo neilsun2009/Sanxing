@@ -52,7 +52,7 @@
                     android:layout_marginBottom="25dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/text_large"
-                    android:text="说一下你今天的收获吧"/>
+                    android:text="用一首歌概括今天的心情"/>
 
                 <View
                     android:id="@+id/td_div_1"

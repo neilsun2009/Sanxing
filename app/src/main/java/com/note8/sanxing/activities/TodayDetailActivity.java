@@ -47,6 +47,13 @@ public class TodayDetailActivity extends AppCompatActivity implements View.OnCli
             lv.setAdapter(adapter);
             lv.setVisibility(View.VISIBLE);
             changeButton.setVisibility(View.VISIBLE);
+            changeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    TextView contentView = (TextView) findViewById(R.id.td_main_content);
+                    contentView.setText("说一下你今天的收获吧");
+                }
+            });
             ansButton.setVisibility(View.VISIBLE);
             ansView.setVisibility(View.GONE);
             div1.setVisibility(View.VISIBLE);
@@ -74,9 +81,10 @@ public class TodayDetailActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View view) {
+        TextView contentView = (TextView) findViewById(R.id.td_main_content);
         Intent intent = new Intent(TodayDetailActivity.this, AnswerQuestionActivity.class);
         intent.putExtra("type", 1);
-        intent.putExtra("title", "说一下你今天的收获吧");
+        intent.putExtra("title", contentView.getText().toString());
         startActivity(intent);
         finish();
     }
