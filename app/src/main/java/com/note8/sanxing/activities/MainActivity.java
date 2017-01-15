@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -283,7 +284,13 @@ public class MainActivity extends AppCompatActivity {
             View.OnClickListener onClickListener = new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(rootView.getContext(), "该功能尚未开通", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(rootView.getContext(), "该功能尚未开通", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(rootView,"此功能尚未开通", Snackbar.LENGTH_LONG)
+                            .setAction("知道了", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view1) {
+                                }
+                            }).show();
                 }
             };
             btn1.setOnClickListener(onClickListener);
@@ -295,6 +302,7 @@ public class MainActivity extends AppCompatActivity {
         //除雷达部分外对话框的事件处理
         private void sendQuestion(final View dialogView,final AlertDialog.Builder builder){
             final EditText user_def_tag = (EditText)dialogView.findViewById(R.id.user_def_tag);
+
             user_def_tag.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
                 public void onFocusChange(View v, boolean hasFocus) {
@@ -309,16 +317,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
-            //可多选标签项
-            CheckBox tag1 = (CheckBox)dialogView.findViewById(R.id.tag1);
-            CheckBox tag2 = (CheckBox)dialogView.findViewById(R.id.tag2);
-            CheckBox tag3 = (CheckBox)dialogView.findViewById(R.id.tag3);
-            CheckBox tag4 = (CheckBox)dialogView.findViewById(R.id.tag4);
-            CheckBox tag5 = (CheckBox)dialogView.findViewById(R.id.tag5);
-            CheckBox tag6 = (CheckBox)dialogView.findViewById(R.id.tag6);
 
             //用户编辑问题输入框
-            EditText send_broadcast_que = (EditText)dialogView.findViewById(R.id.send_broadcast_que);
+            final EditText questions = (EditText)dialogView.findViewById(R.id.send_que);
 
             //对话框确定和取消按钮
             final Button cancel_btn = (Button)dialogView.findViewById(R.id.cancel_btn);
@@ -334,8 +335,49 @@ public class MainActivity extends AppCompatActivity {
             sure_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    dialog.dismiss();
-                    Toast.makeText(getActivity(),"提交成功，等待审核",Toast.LENGTH_SHORT).show();
+                    final String answer_text = questions.getText().toString();//回答的内容;
+                    final String userDefineTag = user_def_tag.getText().toString();
+                    //可多选标签项
+                    final CheckBox tag1 = (CheckBox)dialogView.findViewById(R.id.tag1);
+                    final CheckBox tag2 = (CheckBox)dialogView.findViewById(R.id.tag2);
+                    final CheckBox tag3 = (CheckBox)dialogView.findViewById(R.id.tag3);
+                    final CheckBox tag4 = (CheckBox)dialogView.findViewById(R.id.tag4);
+                    final CheckBox tag5 = (CheckBox)dialogView.findViewById(R.id.tag5);
+                    final CheckBox tag6 = (CheckBox)dialogView.findViewById(R.id.tag6);
+                    System.out.println(tag1.isChecked());
+                    System.out.println(tag2.isChecked());
+                    System.out.println(tag3.isChecked());
+                    System.out.println(tag4.isChecked());
+                    System.out.println(tag5.isChecked());
+                    System.out.println(tag6.isChecked());
+                    if(!answer_text.equals("")){
+                        if (tag1.isChecked() || tag2.isChecked() || tag3.isChecked() || tag4.isChecked() || tag5.isChecked() || tag6.isChecked() || !userDefineTag.equals("")){
+                            //Toast.makeText(getActivity(),"提交成功，等待审核",Toast.LENGTH_SHORT).show();
+                            Snackbar.make(dialogView,"提交成功，等待审核", Snackbar.LENGTH_LONG)
+                                    .setAction("知道了", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view1) {
+                                            dialog.dismiss();
+                                        }
+                                    }).show();
+                        }
+                        else {
+                            Snackbar.make(v,"请选择或填写至少一个标签", Snackbar.LENGTH_LONG)
+                                    .setAction("知道了", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view1) {
+                                        }
+                                    }).show();
+                        }
+                    }
+                    if(answer_text.equals("")){
+                        Snackbar.make(v,"提问内容不能为空", Snackbar.LENGTH_LONG)
+                                .setAction("知道了", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view1) {
+                                    }
+                                }).show();
+                    }
                 }
             });
             dialog.show();

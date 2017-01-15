@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,13 +79,25 @@ public class NearbyAdapter extends ArrayAdapter<NearbyClass>{
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "like no." + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "like no." + position, Toast.LENGTH_SHORT).show();
+                Snackbar.make(view,"like no."+ position, Snackbar.LENGTH_LONG)
+                        .setAction("知道了", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view1) {
+                            }
+                        }).show();
             }
         });
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "delete no." + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "delete no." + position, Toast.LENGTH_SHORT).show();
+                Snackbar.make(view,"delete no."+ position, Snackbar.LENGTH_LONG)
+                        .setAction("知道了", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view1) {
+                            }
+                        }).show();
             }
         });
 

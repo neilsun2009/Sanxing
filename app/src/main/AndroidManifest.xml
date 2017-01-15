@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.MainActivity"
-
+            android:launchMode="singleInstance"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme">
             <intent-filter>

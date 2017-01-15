@@ -1,6 +1,7 @@
 package com.note8.sanxing.activities;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,10 +42,22 @@ public class MeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.me_ask_btn :
-                        Toast.makeText(MeActivity.this, "此功能尚未开通", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MeActivity.this, "此功能尚未开通", Toast.LENGTH_SHORT).show();
+                        Snackbar.make(view,"此功能尚未开通", Snackbar.LENGTH_LONG)
+                                .setAction("知道了", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view1) {
+                                    }
+                                }).show();
                         break;
                     case R.id.me_favorite_btn :
-                        Toast.makeText(MeActivity.this, "此功能尚未开通", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MeActivity.this, "此功能尚未开通", Toast.LENGTH_SHORT).show();
+                        Snackbar.make(view,"此功能尚未开通", Snackbar.LENGTH_LONG)
+                                .setAction("知道了", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view1) {
+                                    }
+                                }).show();
                         break;
                     case R.id.me_weekly_btn :
                         Intent intent = new Intent(MeActivity.this, WeeklyActivity.class);

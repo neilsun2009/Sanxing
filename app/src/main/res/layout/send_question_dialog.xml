@@ -22,7 +22,7 @@
             android:layout_height="3dp"
             android:background="@color/colorBg"/>
         <EditText
-            android:id="@+id/send_broadcast_que"
+            android:id="@+id/send_que"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:paddingTop="16dp"
